@@ -42,7 +42,37 @@ function gymfitness_scripts_styles() {
   // la hoja de estilos principal
   wp_enqueue_style('style', get_stylesheet_uri(), array('normalize', 'googleFont'), '1.0.0');
 
+  if(is_page('galeria')):
+    wp_enqueue_style('lightboxCSS', get_template_directory_uri() . '/css/lightbox.min.css', array(), '2.11.0');
+  endif;
+
   wp_enqueue_script('slicknavJS', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array('jquery'), '1.0.0', true);
+
+  if(is_page('galeria')):
+    wp_enqueue_script('lightboxJS', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.11.0', true);
+  endif;
 
 }
 add_action('wp_enqueue_scripts', 'gymfitness_scripts_styles');
+
+
+// Definir Zona de Widgets
+function gymfitness_widgets() {
+  register_sidebar( array(
+      'name' => 'Sidebar 1', 
+      'id' => 'sidebar_1',
+      'before_widget' => '<div class="widget">',
+      'after_widget' => '</div>',
+      'before_title' => '<h3 class="text-center texto-primario">',
+      'after_title' => '</h3>'
+  ));
+  register_sidebar( array(
+      'name' => 'Sidebar 2', 
+      'id' => 'sidebar_2',
+      'before_widget' => '<div class="widget">',
+      'after_widget' => '</div>',
+      'before_title' => '<h3 class="text-center texto-primario">',
+      'after_title' => '</h3>'
+  ));
+}
+add_action('widgets_init', 'gymfitness_widgets' );

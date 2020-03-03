@@ -4,7 +4,7 @@
 <main class="contenedor pagina seccion con-sidebar">
   <div class="contenido-principal">
 
-    <?php get_template_part("template-parts/paginas") ?>    
+    <?php get_template_part("template-parts/pagina") ?>    
 
   </div>
       <?php get_sidebar() ?>

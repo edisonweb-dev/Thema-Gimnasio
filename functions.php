@@ -2,6 +2,7 @@
 
 
 require get_template_directory() . '/inc/query.php';
+require get_template_directory() . '/inc/shortcodes.php';
 
 // Cuando el tema es activado
 function gymfitness_setup() {
